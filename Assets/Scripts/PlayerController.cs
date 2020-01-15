@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour {
     public Text winText;
     private Rigidbody rb;
     private int count;
+    AudioSource audio;
 
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
@@ -26,6 +28,13 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
+        if (Input.GetKeyDown("space") && rb.transform.position.y <= 0.5f)
+        {
+            Vector3 jump = new Vector3(0.0f, 200.0f, 0.0f);
+
+            rb.AddForce(jump);
+        }
+
         rb.AddForce(movement * speed);
         
     }
@@ -34,6 +43,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
+            audio.Play();
             other.gameObject.SetActive(false);
             count++;
             SetCountText();
@@ -43,7 +53,7 @@ public class PlayerController : MonoBehaviour {
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if(count >= 12)
+        if(count >= 21)
         {
             winText.text = "You win!";
         }
