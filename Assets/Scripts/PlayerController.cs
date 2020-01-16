@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown("space") && rb.transform.position.y <= 0.5f)
         {
-            Vector3 jump = new Vector3(0.0f, 200.0f, 0.0f);
+            Vector3 jump = new Vector3(0.0f, 250.0f, 0.0f);
 
             rb.AddForce(jump);
         }
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if(count >= 21)
+        if(count >= 34)
         {
             winText.text = "You win!";
         }
