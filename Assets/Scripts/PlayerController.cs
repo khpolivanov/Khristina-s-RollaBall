@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
+            Explode();
             audio1.Play();
             other.gameObject.SetActive(false);
             count++;
@@ -63,4 +64,12 @@ public class PlayerController : MonoBehaviour {
             winAudio.Play();
         }
     }
+
+    void Explode()
+    {
+        var exp = GetComponent<ParticleSystem>();
+        exp.Play();
+        Destroy(gameObject, exp.duration);
+    }
+
 }
