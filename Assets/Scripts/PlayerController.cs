@@ -10,11 +10,15 @@ public class PlayerController : MonoBehaviour {
     public Text winText;
     private Rigidbody rb;
     private int count;
-    AudioSource audio;
+    AudioSource audio1;
+    AudioSource winAudio;
 
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+        AudioSource[] aSources = GetComponents<AudioSource>();
+        audio1 = aSources[0];
+        winAudio = aSources[1];
+
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
@@ -23,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        /*float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
@@ -35,7 +39,7 @@ public class PlayerController : MonoBehaviour {
             rb.AddForce(jump);
         }
 
-        rb.AddForce(movement * speed);
+        rb.AddForce(movement * speed);*/
         
     }
 
@@ -43,7 +47,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
-            audio.Play();
+            audio1.Play();
             other.gameObject.SetActive(false);
             count++;
             SetCountText();
@@ -54,8 +58,9 @@ public class PlayerController : MonoBehaviour {
     {
         countText.text = "Count: " + count.ToString();
         if(count >= 34)
-        {
+        { 
             winText.text = "You win!";
+            winAudio.Play();
         }
     }
 }
