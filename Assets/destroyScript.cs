@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class destroyScript : MonoBehaviour
 {
-    public ParticleSystem explosion;
+
+
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.CompareTag("Pickup"))
         {
-            Explode();
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject, 2);
         }
-
-
-    }
-
-    void Explode ()
-    {
-        var exp = GetComponent<ParticleSystem>();
-        exp.Play();
-        Destroy(gameObject, exp.duration);
     }
 
 }

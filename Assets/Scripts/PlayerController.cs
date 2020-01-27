@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour {
     private int count;
     AudioSource audio1;
     AudioSource winAudio;
+    public ParticleSystem exp;
 
     private void Start()
     {
         AudioSource[] aSources = GetComponents<AudioSource>();
+        ParticleSystem exp = GetComponent<ParticleSystem>();
         audio1 = aSources[0];
         winAudio = aSources[1];
 
@@ -47,29 +49,15 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
-            Explode();
             audio1.Play();
-            other.gameObject.SetActive(false);
             count++;
             SetCountText();
+            Destroy(other.gameObject, 2);
         }
     }
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
-        if(count >= 34)
-        { 
-            winText.text = "You win!";
-            winAudio.Play();
-        }
-    }
-
-    void Explode()
-    {
-        var exp = GetComponent<ParticleSystem>();
-        exp.Play();
-        Destroy(gameObject, exp.duration);
     }
 
 }
