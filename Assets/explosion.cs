@@ -13,10 +13,11 @@ public class explosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Hit"))
+        if (other.gameObject.CompareTag("projectile"))
         {
             GetComponent<MeshRenderer>().enabled = false;
             exp.Play();
+            Destroy(gameObject, 2);
         }
     }
 

@@ -3420,6 +3420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4bcc35dd4894aff9cea05d30e14e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  exp: {fileID: 0}
 --- !u!1001 &454955899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10268,7 +10270,7 @@ GameObject:
   - component: {fileID: 1497619744}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Hit
+  m_TagString: projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10389,7 +10391,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b6f7aa134dab040398aa745fd1656ba0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0bbff1c20ce4feb419c72d6b42a465d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12440,6 +12442,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010066870806, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011357411894, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012312091976, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013804283954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: projectile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
 --- !u!1 &1821835126
@@ -13835,6 +13853,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1945817980}
     m_Modifications:
+    - target: {fileID: 3466383871283449464, guid: b8e13d38ac9804adeb7e6fcf127c5db9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3466383871283449465, guid: b8e13d38ac9804adeb7e6fcf127c5db9,
         type: 3}
       propertyPath: m_Enabled

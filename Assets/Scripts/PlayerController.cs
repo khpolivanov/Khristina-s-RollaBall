@@ -58,6 +58,12 @@ public class PlayerController : MonoBehaviour {
 
     void SetCountText()
     {
+        countText.text = "Count: " + count.ToString();
+        if(count >= 34)
+        { 
+            winText.text = "You win!";
+            winAudio.Play();
+        }
     }
 
 }
